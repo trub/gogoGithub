@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import SafariServices
 
-class SearchRepoViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
+class SearchRepoViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, SFSafariViewControllerDelegate {
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
@@ -57,13 +58,12 @@ class SearchRepoViewController: UIViewController, UITableViewDelegate, UITableVi
                             var repositories = [Repository]()
                             
                             for eachRepository in items {
-                                
                                 let name = eachRepository["name"] as? String
                                 let id = eachRepository["id"] as? Int
+                                let repositoryUrl = eachRepository["svn_url"] as? String
                                 
-                                
-                                if let name = name, id = id {
-                                    let repo = Repository(name: name, id: id)
+                                if let name = name, id = id, repositoryUrl = repositoryUrl {
+                                    let repo = Repository(name: name, id: id, url: repositoryUrl)
                                     repositories.append(repo)
                                 }
                             }
@@ -92,11 +92,44 @@ class SearchRepoViewController: UIViewController, UITableViewDelegate, UITableVi
         return cell
     }
     
-    // MARK: UISearchBarDelegate
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        let selectedRepositoryUrl = repositories[indexPath.row].url
+        print("The selected repo url for safari is: \(selectedRepositoryUrl)")
+        
+        let safariViewController = SFSafariViewController(URL: NSURL(string: selectedRepositoryUrl)!, entersReaderIfAvailable: true)
+        safariViewController.delegate = self
+        self.presentViewController(safariViewController, animated: true, completion: nil)
+    }
     
+    // MARK: UISearchBarDelegate
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-        guard let searchTerm = searchBar.text else {return}
-        self.update(searchTerm)
+        if let searchTerm = searchBar.text {
+            if String.validateInput(searchTerm) {
+                self.update(searchTerm)
+            } else {
+                let alert = UIAlertController(title: "No Bueno", message: "Your search for '\(searchBar.text!)' is no bueno.", preferredStyle: .Alert)
+                let action = UIAlertAction(title: "lol", style: .Cancel, handler: nil)
+                alert.addAction(action)
+                presentViewController(alert, animated: true, completion: nil)
+            }
+        }
+    }
+    
+    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
+        self.searchBar.resignFirstResponder()
+    }
+    
+    func searchBarShouldEndEditing(searchBar: UISearchBar) -> Bool {
+        self.searchBar.resignFirstResponder()
+        return true
+    }
+
+    
+    // MARK: SFSafariViewControllerDelegate
+    
+    func safariViewControllerDidFinish(controller: SFSafariViewController) {
+        controller.dismissViewControllerAnimated(true, completion: nil)
     }
 
 }
