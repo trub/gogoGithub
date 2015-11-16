@@ -8,11 +8,16 @@
 
 import UIKit
 
-class SearchUserViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UISearchBarDelegate {
-    
+class SearchUserViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UISearchBarDelegate, UIViewControllerTransitioningDelegate {
+
+    //MARK: properties
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var collectionView: UICollectionView!
     
+    let customTransition = CustomModalTransition(duration: 2.0)
+
+    
+    //MARK: constants
     let kUserName = "name"
     let kUserLogin = "login"
     let kUserURL = "url"
@@ -109,13 +114,50 @@ class SearchUserViewController: UIViewController, UICollectionViewDelegate, UICo
         return cell
     }
     
+    
     // MARK: UISearchBarDelegate
-    
-    
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-        guard let searchTerm = searchBar.text else {return}
-        print("have clicked the searchbar, with text\(searchTerm)")
-        self.update(searchTerm)
+        if let searchTerm = searchBar.text {
+            if String.validateInput(searchTerm) {
+                self.update(searchTerm)
+            } else {
+                let alert = UIAlertController(title: "No Bueno", message: "Your search for '\(searchBar.text!)' is no bueno.", preferredStyle: .Alert)
+                let action = UIAlertAction(title: "lol", style: .Cancel, handler: nil)
+                alert.addAction(action)
+                presentViewController(alert, animated: true, completion: nil)
+            }
+        }
     }
+    
+    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
+        self.searchBar.resignFirstResponder()
+    }
+    
+    func searchBarShouldEndEditing(searchBar: UISearchBar) -> Bool {
+        self.searchBar.resignFirstResponder()
+        return true
+    }
+    
+    // MARK: navigation
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == UserDetailViewController.identifier() {
+            if let cell = sender as? UICollectionViewCell, indexPath = collectionView.indexPathForCell(cell) {
+                guard let userDetailViewController = segue.destinationViewController as? UserDetailViewController else {return}
+                userDetailViewController.transitioningDelegate = self
+                
+                let user = users[indexPath.item]
+                userDetailViewController.selectedUser = user
+            }
+        }
+    }
+    
+    // MARK: Transition
+    
+    func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return self.customTransition
+    }
+    
 
+    
 }

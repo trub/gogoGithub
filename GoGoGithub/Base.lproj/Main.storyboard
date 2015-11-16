@@ -451,6 +451,42 @@
             </objects>
             <point key="canvasLocation" x="3238" y="-133"/>
         </scene>
+        <!--User Detail View Controller-->
+        <scene sceneID="Jyq-Em-Crt">
+            <objects>
+                <viewController id="Htf-re-BJx" customClass="UserDetailViewController" customModule="GoGoGithub" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="AGD-TK-1UL"/>
+                        <viewControllerLayoutGuide type="bottom" id="DGz-Hf-gdZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="VcI-YI-9SI">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y32-Sd-udc">
+                                <rect key="frame" x="188" y="112" width="240" height="128"/>
+                                <animations/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yw5-GV-fFp">
+                                <rect key="frame" x="178" y="289" width="42" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="userImageView" destination="y32-Sd-udc" id="RNU-j9-eFA"/>
+                        <outlet property="userLoginLabel" destination="yw5-GV-fFp" id="P4C-Gf-32j"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ABT-cl-M1b" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2228" y="1323"/>
+        </scene>
         <!--Profile-->
         <scene sceneID="rZT-Zy-ItY">
             <objects>

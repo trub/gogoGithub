@@ -25,6 +25,9 @@
 		E185F64F1BFA4728004D9EF9 /* NewRepoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E185F64E1BFA4728004D9EF9 /* NewRepoViewController.swift */; };
 		E185F6511BFA49CB004D9EF9 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E185F6501BFA49CB004D9EF9 /* ProfileViewController.swift */; };
 		E185F6541BFA5ADB004D9EF9 /* exSearchRepoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E185F6531BFA5ADB004D9EF9 /* exSearchRepoVC.swift */; };
+		E185F6561BFA6F61004D9EF9 /* UserDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E185F6551BFA6F61004D9EF9 /* UserDetailViewController.swift */; };
+		E185F6581BFA712C004D9EF9 /* CustomTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E185F6571BFA712C004D9EF9 /* CustomTransition.swift */; };
+		E185F65A1BFA716B004D9EF9 /* CustomAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E185F6591BFA716B004D9EF9 /* CustomAnimation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +72,9 @@
 		E185F64E1BFA4728004D9EF9 /* NewRepoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewRepoViewController.swift; sourceTree = "<group>"; };
 		E185F6501BFA49CB004D9EF9 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		E185F6531BFA5ADB004D9EF9 /* exSearchRepoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = exSearchRepoVC.swift; sourceTree = "<group>"; };
+		E185F6551BFA6F61004D9EF9 /* UserDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailViewController.swift; sourceTree = "<group>"; };
+		E185F6571BFA712C004D9EF9 /* CustomTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTransition.swift; sourceTree = "<group>"; };
+		E185F6591BFA716B004D9EF9 /* CustomAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAnimation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +167,7 @@
 				1CA672111BD9628C007EE8F8 /* OAuthViewController.swift */,
 				1CA62C341BF6B34D00220FEA /* SearchRepoViewController.swift */,
 				1CA62C361BF6B35700220FEA /* SearchUserViewController.swift */,
+				E185F6551BFA6F61004D9EF9 /* UserDetailViewController.swift */,
 				E185F64E1BFA4728004D9EF9 /* NewRepoViewController.swift */,
 				E185F6501BFA49CB004D9EF9 /* ProfileViewController.swift */,
 				E185F6521BFA5AC0004D9EF9 /* Extensions */,
@@ -185,6 +192,8 @@
 				1C0CFCB01BD8612F007DE7FD /* Assets.xcassets */,
 				1C0CFCB21BD8612F007DE7FD /* LaunchScreen.storyboard */,
 				1CA62C381BF6BA6A00220FEA /* UserCollectionViewCell.swift */,
+				E185F6571BFA712C004D9EF9 /* CustomTransition.swift */,
+				E185F6591BFA716B004D9EF9 /* CustomAnimation.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -337,6 +346,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E185F6561BFA6F61004D9EF9 /* UserDetailViewController.swift in Sources */,
 				1C0CFCAC1BD8612F007DE7FD /* HomeViewController.swift in Sources */,
 				E185F6541BFA5ADB004D9EF9 /* exSearchRepoVC.swift in Sources */,
 				1CA672121BD9628C007EE8F8 /* OAuthViewController.swift in Sources */,
@@ -347,6 +357,8 @@
 				1C6BA3AB1BD9D971002E7A4F /* MBGithubOAuth.swift in Sources */,
 				1CA62C3B1BF6BB6600220FEA /* User.swift in Sources */,
 				1CA62C391BF6BA6A00220FEA /* UserCollectionViewCell.swift in Sources */,
+				E185F65A1BFA716B004D9EF9 /* CustomAnimation.swift in Sources */,
+				E185F6581BFA712C004D9EF9 /* CustomTransition.swift in Sources */,
 				1CA62C351BF6B34D00220FEA /* SearchRepoViewController.swift in Sources */,
 				1CA62C3D1BF6C01900220FEA /* CustomFlowLayout.swift in Sources */,
 				1C8D77DE1BD9A3B5002F076A /* Repository.swift in Sources */,
