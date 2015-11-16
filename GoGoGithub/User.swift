@@ -8,14 +8,25 @@
 
 import Foundation
 
+
 class User {
     
-    var name: String
-    var profileImageUrl: String
+    let userLogin: String
+    let userName: String
+    let userEmail: String
+    let userURL: String
+    let userImageURL: String
+    let userFollowers: Int
+    let userFollowing: Int
     
-    init(name: String, profileImageUrl: String) {
-        self.name = name
-        self.profileImageUrl = profileImageUrl
+    init(userLogin: String, userName: String,  userEmail: String, userURL: String, userImageURL: String, userFollowers: Int, userFollowing: Int) {
+        self.userLogin = userLogin
+        self.userName = userName
+        self.userEmail = userEmail
+        self.userURL = userURL
+        self.userImageURL = userImageURL
+        self.userFollowers = userFollowers
+        self.userFollowing = userFollowing
     }
     
 }

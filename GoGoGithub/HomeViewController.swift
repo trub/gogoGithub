@@ -8,7 +8,16 @@
 
 import UIKit
 
+
+
 class HomeViewController: UIViewController, UITableViewDataSource {
+    let kUserLogin = "login"
+    let kUserURL = "url"
+    let kUserImageURL = "avatar_url"
+    let kUserFollowers = "followers"
+    let kUserFollowing = "following"
+    let kUserEmail = "email"
+
     
     @IBOutlet var tableView: UITableView!
     
@@ -17,6 +26,9 @@ class HomeViewController: UIViewController, UITableViewDataSource {
             self.tableView.reloadData()
         }
     }
+    
+    var users = [User]()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,6 +72,17 @@ class HomeViewController: UIViewController, UITableViewDataSource {
                             let url = eachRepository["svn_url"] as? String
                             
                             
+                            if let user = eachRepository["owner"] as? [String: AnyObject] {
+                                if let userName = user[self.kUserLogin] as? String,
+                                    userLogin = user[self.kUserLogin] as? String,
+                                    userURL = user[self.kUserURL] as? String,
+                                    userImageURL = user[self.kUserImageURL] as? String
+                                {
+                                    let newuser =  User(userLogin: userLogin, userName: userName, userEmail: "", userURL: userURL, userImageURL: userImageURL, userFollowers: 0, userFollowing: 0)
+                                    self.users.append(newuser)
+                                }
+                                
+                            }
                             
                             if let name = name, id = id, url = url  {
                                 let repo = Repository(name: name, id: id, url: url)
@@ -92,6 +115,19 @@ class HomeViewController: UIViewController, UITableViewDataSource {
         return cell
         
     }
+    
+    //MARK: navigation
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        if segue.identifier == "ProfileSegue" {
+            if let profileVC = segue.destinationViewController as? ProfileViewController {
+                var newUser = self.users[0]
+                profileVC.user = newUser
+            }
+
+        }
+    }
+
     
 }
 

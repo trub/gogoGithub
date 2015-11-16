@@ -16,8 +16,9 @@ class UserCollectionViewCell: UICollectionViewCell {
         didSet {
             
             NSOperationQueue().addOperationWithBlock { () -> Void in
+                print("setup cell")
                 
-                if let imageUrl = NSURL(string: self.user.profileImageUrl) {
+                if let imageUrl = NSURL(string: self.user.userImageURL) {
                     guard let imageData = NSData(contentsOfURL: imageUrl) else {return}
                     let image = UIImage(data: imageData)
                     NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in

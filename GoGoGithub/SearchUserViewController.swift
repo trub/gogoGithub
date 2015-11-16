@@ -13,6 +13,15 @@ class SearchUserViewController: UIViewController, UICollectionViewDelegate, UICo
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var collectionView: UICollectionView!
     
+    let kUserName = "name"
+    let kUserLogin = "login"
+    let kUserURL = "url"
+    let kUserImageURL = "avatar_url"
+    let kUserFollowers = "followers"
+    let kUserFollowing = "following"
+    let kUserEmail = "email"
+
+    
     var users = [User]() {
         didSet {
             self.collectionView.reloadData()
@@ -25,7 +34,7 @@ class SearchUserViewController: UIViewController, UICollectionViewDelegate, UICo
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.collectionView.collectionViewLayout = CustomFlowLayout(columns: 2)
+        self.collectionView.collectionViewLayout = CustomFlowLayout(columns: 3)
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,10 +42,11 @@ class SearchUserViewController: UIViewController, UICollectionViewDelegate, UICo
     }
     
     func update(searchTerm: String) {
+        print("hit update funk")
         do {
             let token = try MBGithubOAuth.shared.accessToken()
             
-            let url = NSURL(string: "https://api.github.com/search/users?access_token=\(token)&q=\(searchTerm)")!
+            guard let url = NSURL(string: "https://api.github.com/search/users?access_token=\(token)&q=\(searchTerm)") else { return }
             
             let request = NSMutableURLRequest(URL: url)
             request.setValue("application/json", forHTTPHeaderField: "Accept")
@@ -46,6 +56,8 @@ class SearchUserViewController: UIViewController, UICollectionViewDelegate, UICo
                 if let error = error {
                     print(error)
                 }
+                guard let response = response as? NSHTTPURLResponse else { return }
+                print("status code\(response.statusCode ) ")
                 
                 if let data = data {
                     
@@ -53,20 +65,19 @@ class SearchUserViewController: UIViewController, UICollectionViewDelegate, UICo
                         
                         if let items = json["items"] as? [[String : AnyObject]] {
                             
-                            // login
-                            // avatar_url
-                            
                             var users = [User]()
                             
                             for item in items {
                                 
-                                let name = item["login"] as? String
-                                let profileImageUrl = item["avatar_url"] as? String
+                                if let userName = item["login"] as? String,
+                                userLogin = item[self.kUserLogin] as? String,
+                                userURL = item[self.kUserURL] as? String,
+                                    userImageURL = item[self.kUserImageURL] as? String{
                                 
-                                if let name = name, profileImageUrl = profileImageUrl {
-                                    
-                                    users.append(User(name: name, profileImageUrl: profileImageUrl))
-                                    
+                                    let newuser =  User(userLogin: userLogin, userName: userName, userEmail: "", userURL: userURL, userImageURL: userImageURL, userFollowers: 0, userFollowing: 0)
+                                    users.append(newuser)
+                                    print("createing new user with name: \(newuser.userName)" )
+
                                 }
                                 
                             }
@@ -100,8 +111,10 @@ class SearchUserViewController: UIViewController, UICollectionViewDelegate, UICo
     
     // MARK: UISearchBarDelegate
     
+    
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         guard let searchTerm = searchBar.text else {return}
+        print("have clicked the searchbar, with text\(searchTerm)")
         self.update(searchTerm)
     }
 

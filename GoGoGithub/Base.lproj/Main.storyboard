@@ -61,7 +61,7 @@
                     <navigationItem key="navigationItem" title="My Repositories" id="evM-Wr-Hpw">
                         <barButtonItem key="leftBarButtonItem" image="profile" id="1tZ-dJ-Mws">
                             <connections>
-                                <segue destination="Tk3-sB-EdB" kind="show" id="BKx-Zz-0wp"/>
+                                <segue destination="Tk3-sB-EdB" kind="show" identifier="ProfileSegue" id="BKx-Zz-0wp"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="owu-8l-mKt">
@@ -540,7 +540,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JOw-8L-FK0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2400" y="-832"/>
+            <point key="canvasLocation" x="2860" y="-1056"/>
         </scene>
     </scenes>
     <resources>
