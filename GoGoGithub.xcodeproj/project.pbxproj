@@ -24,6 +24,7 @@
 		1CA672121BD9628C007EE8F8 /* OAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA672111BD9628C007EE8F8 /* OAuthViewController.swift */; };
 		E185F64F1BFA4728004D9EF9 /* NewRepoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E185F64E1BFA4728004D9EF9 /* NewRepoViewController.swift */; };
 		E185F6511BFA49CB004D9EF9 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E185F6501BFA49CB004D9EF9 /* ProfileViewController.swift */; };
+		E185F6541BFA5ADB004D9EF9 /* exSearchRepoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E185F6531BFA5ADB004D9EF9 /* exSearchRepoVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		1CA672111BD9628C007EE8F8 /* OAuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthViewController.swift; sourceTree = "<group>"; };
 		E185F64E1BFA4728004D9EF9 /* NewRepoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewRepoViewController.swift; sourceTree = "<group>"; };
 		E185F6501BFA49CB004D9EF9 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		E185F6531BFA5ADB004D9EF9 /* exSearchRepoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = exSearchRepoVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +163,7 @@
 				1CA62C361BF6B35700220FEA /* SearchUserViewController.swift */,
 				E185F64E1BFA4728004D9EF9 /* NewRepoViewController.swift */,
 				E185F6501BFA49CB004D9EF9 /* ProfileViewController.swift */,
+				E185F6521BFA5AC0004D9EF9 /* Extensions */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -193,6 +196,14 @@
 				1CA62C3A1BF6BB6600220FEA /* User.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		E185F6521BFA5AC0004D9EF9 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E185F6531BFA5ADB004D9EF9 /* exSearchRepoVC.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -327,6 +338,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C0CFCAC1BD8612F007DE7FD /* HomeViewController.swift in Sources */,
+				E185F6541BFA5ADB004D9EF9 /* exSearchRepoVC.swift in Sources */,
 				1CA672121BD9628C007EE8F8 /* OAuthViewController.swift in Sources */,
 				E185F6511BFA49CB004D9EF9 /* ProfileViewController.swift in Sources */,
 				1C0CFCAA1BD8612F007DE7FD /* AppDelegate.swift in Sources */,

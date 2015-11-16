@@ -1,16 +1,16 @@
 {
-  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "B503A6AD52A17037F780D4A208C7C2A6E67673B6",
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "7FA91326B962CDFA4333DFD32E52DF2920530F88",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
 
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
-    "B503A6AD52A17037F780D4A208C7C2A6E67673B6" : 0,
+    "7FA91326B962CDFA4333DFD32E52DF2920530F88" : 0,
     "0193109BC85309A51342FB508B83DD8648AED777" : 0,
     "73919E25B09DF80141E6FBA37A5260CC2A5777EE" : 0
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "49DBE5E9-3E6A-4F83-8AA2-0DB442E1D1DC",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
-    "B503A6AD52A17037F780D4A208C7C2A6E67673B6" : "GoGoGithub\/",
+    "7FA91326B962CDFA4333DFD32E52DF2920530F88" : "GoGoGithub\/",
     "0193109BC85309A51342FB508B83DD8648AED777" : "thisplace\/",
     "73919E25B09DF80141E6FBA37A5260CC2A5777EE" : "MBGithubOAuth\/"
   },
@@ -31,7 +31,7 @@
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "ssh:\/\/www.pr0x7.com\/git\/GoGoGithub.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
-      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "B503A6AD52A17037F780D4A208C7C2A6E67673B6"
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "7FA91326B962CDFA4333DFD32E52DF2920530F88"
     }
   ]
 }
